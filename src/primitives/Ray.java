@@ -31,7 +31,7 @@ public class Ray {
         return p0;
     }
 
-    public Vector getDir() {
+    public Vector getDirection() {
         return dir;
     }
 
