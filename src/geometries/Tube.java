@@ -1,8 +1,10 @@
 package geometries;
 
+import primitives.Double3;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+
 
 public class Tube implements Geometry
 {
@@ -14,7 +16,7 @@ public class Tube implements Geometry
         this.radius = radius;
     }
 
-    public Ray getAxisRay() {
+    public Ray getAxis() {
         return axisRay;
     }
 
@@ -30,8 +32,17 @@ public class Tube implements Geometry
                 '}';
     }
 
+    /**
+     * calculates normal for infinite cylinder(tube)
+     * @param point
+     * @return
+     */
     @Override
     public Vector getNormal(Point point) {
-        return null;
+        double t = axisRay.getDirection().dotProduct(point.subtract( axisRay.getP0()));//finding scaler for the projection of point on axisRay
+        Point O = axisRay.getP0().add(axisRay.getDirection().scale(t));// O is the projection of point on axisRay
+        Vector N=point.subtract(O);
+        return N.normalize();
     }
+
 }
