@@ -79,6 +79,34 @@ public class Point {
     }
 
     public Vector subtract(Point p1) {
-        return new Vector(_xyz.subtract(p1._xyz));
+        return new Vector(p1._xyz.subtract(_xyz));
+    }
+
+    /**
+     * Point x value getter
+     *
+     * @return x coordinate value
+     */
+    public double get_x()
+    {
+        return _xyz._d1;
+    }
+    /**
+     * Point y value getter
+     *
+     * @return y coordinate value
+     */
+    public double get_y()
+    {
+        return _xyz._d2;
+    }
+    /**
+     * Point z value getter
+     *
+     * @return z coordinate value
+     */
+    public double get_z()
+    {
+        return _xyz._d3;
     }
 }

@@ -1,9 +1,14 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
 import java.util.Objects;
+
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
 
 public class Plane implements Geometry {
     final private Point _q0;
@@ -61,5 +66,29 @@ public class Plane implements Geometry {
     @Override
     public Vector getNormal(Point point) {
         return getNormal();
+    }
+
+    @Override
+    public List<Point> findIntersectionpoints(Ray ray) {
+        Point P0=ray.getP0();
+        Vector v=ray.getDirection();
+        Vector n=_normal;
+        //denominator
+        double nv = n.dotProduct(v);
+
+        if (isZero(nv)) {
+            return null;
+        }
+        Vector P0_Q=P0.subtract(_q0);
+        double t=alignZero(n.dotProduct(P0_Q)/nv);
+        //if t < 0 the array point to the opposite direction
+        // if t==0 the ray origin lay with הקרן לא בכיוון שאנחנו רוצים
+        if(t > 0)
+        {
+            Point P=P0.add(v.scale(t));
+            return List.of(P);
+        }
+
+        return null;
     }
 }
