@@ -68,6 +68,7 @@ public class Plane implements Geometry {
         return getNormal();
     }
 
+
     @Override
     public List<Point> findIntersectionpoints(Ray ray) {
         Point P0=ray.getP0();

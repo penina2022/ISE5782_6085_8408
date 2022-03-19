@@ -79,7 +79,15 @@ public class Point {
     }
 
     public Vector subtract(Point p1) {
-        return new Vector(p1._xyz.subtract(_xyz));
+        if (p1.equals(this)) {
+            throw new IllegalArgumentException("cannot create Vector to Point(0,0,0)");
+        }
+        return  new Vector(
+                _xyz._d1 - p1.get_x(),
+                _xyz._d2 - p1.get_y(),
+                _xyz._d3 - p1.get_z()
+       );
+        //return new Vector(p1._xyz.subtract(_xyz));
     }
 
     /**
