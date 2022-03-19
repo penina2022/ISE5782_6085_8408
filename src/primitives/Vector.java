@@ -1,7 +1,9 @@
 package primitives;
 
-public class Vector extends Point {
-    public Vector(double x, double y, double z) {
+public class Vector extends Point
+{
+    public Vector(double x, double y, double z)
+    {
 //        super(x,y,z);
 //        if(_xyz.equals(Double3.ZERO))
 //        {
@@ -14,7 +16,8 @@ public class Vector extends Point {
      *
      * @param xyz
      */
-    public Vector(Double3 xyz){
+    public Vector(Double3 xyz)
+    {
         super(xyz);
         if(_xyz.equals(Double3.ZERO))
         {
