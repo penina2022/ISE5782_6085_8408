@@ -31,8 +31,6 @@ class PlaneTest {
             fail("Constructed an incorrect plane");
         } catch (IllegalArgumentException e) {
         }
-
-
     }
 
     @Test
@@ -48,7 +46,7 @@ class PlaneTest {
      * Test method for {@link geometries.Plane#findIntersectionpoints(Ray)} (primitives.Ray)}.
      */
     @Test
-    public void findIntersectionpoints() {
+    public void findIntersections() {
         Plane pl = new Plane(new Point(0, 0, 1), new Vector(1, 1, 1));
         // ============ Equivalence Partitions Tests ==============
         // TC01: Ray into plane
