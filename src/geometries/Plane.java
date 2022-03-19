@@ -4,6 +4,7 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -89,7 +90,6 @@ public class Plane implements Geometry {
             Point P=P0.add(v.scale(t));
             return List.of(P);
         }
-
         return null;
     }
 }
