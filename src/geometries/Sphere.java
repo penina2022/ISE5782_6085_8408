@@ -7,6 +7,7 @@ import primitives.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
+import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 public class Sphere implements Geometry{
@@ -34,7 +35,7 @@ public class Sphere implements Geometry{
 
     @Override
     public List<Point> findIntersectionpoints(Ray ray) {
-        Point p0 = ray.getP0();
+        Point p0 = new Point(ray.getP0().get_x(),ray.getP0().get_y(),ray.getP0().get_z());
         //if the ray starts at the center add epsilon
         if(_center.equals(ray.getP0()))
             p0 = new Point(ray.getP0().get_x() + 0.1111111115,ray.getP0().get_y(), ray.getP0().get_z());
@@ -62,15 +63,15 @@ public class Sphere implements Geometry{
         //only if t1>0
         if(!isZero(t1) && t1>0)
             //p1 = p0 + t1*v
-            p1 = myRay.getP0();
+            p1 = myRay.getP0().add(myRay.getDirection().scale(t1));
         //only if t2>0
         if(!isZero(t2) && t2>0)
             //p2 = p0 + t2*v
-            p2 = myRay.getP0();
+            p2 = myRay.getP0().add(myRay.getDirection().scale(t2));
         //if it is no intersections points
         if(p1 == null && p2 == null)
             return null;
-        List<Point> intsersection = new ArrayList<>();
+        ArrayList<Point> intsersection = new ArrayList<Point>();
         if(p1 != null)
             intsersection.add(p1);
         if(p2 != null)

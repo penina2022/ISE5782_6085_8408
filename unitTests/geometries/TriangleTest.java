@@ -27,6 +27,9 @@ class TriangleTest {
                 "ERROR: Bad normal to triangle");
     }
 
+    /**
+     * Test method for {@link geometries.Triangle #findIntersectionpoints(Ray)} (primitives.Ray)}.
+     */
     @Test
     void testFindIntersectionsEP() {
         Triangle tr = new Triangle(new Point(0, 0, 1), new Point(1, 0, 0), new Point(0, 1, 0));
