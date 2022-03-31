@@ -1,8 +1,9 @@
-package primitives;
-
-import org.junit.jupiter.api.Test;
+package unittests.primitives;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import primitives.Point;
+import primitives.Vector;
 
 class PointTest {
     Point p1 = new Point(1,2,3);

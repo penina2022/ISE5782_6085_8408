@@ -1,6 +1,7 @@
-package geometries;
+package unittests.geometries;
 
 import org.junit.jupiter.api.Test;
+import geometries.*;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
@@ -13,8 +14,7 @@ class CylinderTest {
     void testGetNormal()
     {
 
-        // ============ Equivalence Partitions Tests ==============
-        // TC01: There is a simple single test here
+        // ============ Equivalence Partitions Tests ===========// TC01: There is a simple single test here
         Cylinder cy = new Cylinder(
                 new Ray(new Point(0, 0, 0), new Vector(0, 0, 1)),
                 2,
