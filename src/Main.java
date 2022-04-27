@@ -2,9 +2,9 @@
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
-//Mini Project in Software Engineering
-// Tzivya Rotlevy tzivya@rotlevy.com
-// Yocheved Ismailof
+// Mini Project in Software Engineering
+// Shira Pinski 214103723 pinskishira@gmail.com
+// Ayelet Dadon 324863216 ayeletnomi6@gmail.com
 import primitives.Vector;
 
 public final class Main {
@@ -22,17 +22,6 @@ public final class Main {
         Vector v1 = new Vector(1.0D, 2.0D, 3.0D);
         Vector v2 = new Vector(-2.0D, -4.0D, -6.0D);
         Vector v3 = new Vector(0.0D, 3.0D, -2.0D);
-
-
-
-
-
-
-
-
-
-
-
         System.out.println("If there were no any other outputs - all tests succeeded!");
     }
 }

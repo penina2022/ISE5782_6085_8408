@@ -12,9 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class SphereTest {
-
-
-
     /**
      * Test method for {@link geometries.Sphere#getNormal(Point)} (primitives.Point)}.
      */
