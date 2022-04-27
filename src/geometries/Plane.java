@@ -72,7 +72,7 @@ public class Plane implements Geometry, Intersectable {
     @Override
     public List<Point> findIntersectionpoints(Ray ray) {
         Point P0=ray.getP0();
-        Vector v=ray.getDirection();
+        Vector v=ray.getDir();
         Vector n=_normal;
         //denominator
         double nv = n.dotProduct(v);

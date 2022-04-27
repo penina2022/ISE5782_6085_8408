@@ -37,10 +37,25 @@ class PointTest {
     }
 
     /**
+     * Test method for {@link primitives.Point#subtract(Point)}.
+     */
+    @Test
+    void testSubtract() {
+        // ============ Equivalence Partitions Tests ==============
+
+        // TC01: There is one simple test here
+        Point point1 = new Point(1, 2, 3);
+        Point point2 = new Point(1, 1, 1);
+        assertEquals(new Vector(0, 1, 2), point1.subtract(point2), "subtract does not work correctly");
+    }
+
+    /**
      * Test method for {@link Point#subtract(Point)} )}
      */
+    /**
     @Test
     void testSubtract() {
         assertEquals(new Vector(0,1,2), p1.subtract(p2),"add doesn't work properly");
     }
+    */
 }

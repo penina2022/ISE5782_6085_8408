@@ -22,7 +22,7 @@ class TubeTest {
 
         Vector normal = tube.getNormal(new Point(0, 0.5, 2)).normalize();
 
-        double dotProduct = normal.dotProduct(tube.getAxis().getDirection());
+        double dotProduct = normal.dotProduct(tube.getAxis().getDir());
         assertEquals(0d, dotProduct, "normal is not orthogonal to the tube");
 
         boolean firstnormal = new Vector(0, 0, 1).equals(normal);

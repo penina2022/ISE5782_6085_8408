@@ -3,7 +3,8 @@ package primitives;
 import java.util.Objects;
 
 public class Point {
-    //package friendly
+    //Field represents the x,y,z values of the point
+    public static final Point  ZERO = new Point(0,0,0) ;
     protected final Double3 _xyz;
 
     @Override

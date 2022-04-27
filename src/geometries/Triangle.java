@@ -28,7 +28,7 @@ public class Triangle extends Polygon implements Geometry, Intersectable {
             return null;
 
         Point P0=ray.getP0();
-        Vector v=ray.getDirection();
+        Vector v=ray.getDir();
 
         Point p1 = vertices.get(0);
         Point p2 = vertices.get(1);

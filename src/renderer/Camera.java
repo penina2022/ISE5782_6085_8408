@@ -1,11 +1,13 @@
 package renderer;
 
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.MissingResourceException;
 
 import static primitives.Util.isZero;
 
@@ -38,6 +40,11 @@ public class Camera {
      * The distance between the camera and the view plane.
      */
     private double distance;
+
+    // Field for image writer
+    private ImageWriter imageWriter;
+    // Field for ray tracer
+    private RayTracerBase rayTracerBase;
 
     /**
      * Returns the camera location.
@@ -86,6 +93,29 @@ public class Camera {
      */
     public double getDistance() {
         return distance;
+    }
+
+    /**
+     * Setter of builder patterns
+     * Set image writer
+     *
+     * @param ImageWriter parameter for imgaeWriter
+     * @return Camera object
+     */
+    public Camera setImageWriter(ImageWriter ImageWriter) {
+        this.imageWriter = ImageWriter;
+        return this;
+    }
+
+    /**
+     * Setter of builder patterns
+     * set ray tracer
+     * @param rayTracerBasic parameter for rayTracerBasic
+     * @return Camera object
+     */
+    public Camera setRayTracer(RayTracerBasic rayTracerBasic) {
+        this.rayTracerBase = rayTracerBasic;
+        return this;
     }
 
     /**
@@ -188,6 +218,63 @@ public class Camera {
     public Ray constructRay(int nX, int nY, int j, int i) {
         Point pCenterPixel = CalculateCenterPointInPixel(nX, nY, j, i);
         return new Ray(p0, pCenterPixel.subtract(p0));
+    }
+
+    /**
+     * function that get the color of each point in
+     * the view plane and paint it .
+     */
+    public void renderImage() {
+        // if one of the fields hasn't been initialized throw an exception
+        if (imageWriter == null) {
+            throw new MissingResourceException("missing resource", ImageWriter.class.getName(), "");
+        }
+        if (rayTracerBase == null) {
+            throw new MissingResourceException("missing resource", RayTracerBase.class.getName(), "");
+        }
+
+        int nX = imageWriter.getNx();
+        int nY = imageWriter.getNy();
+
+        //go over all the pixels
+        for (int i = 0; i < nX; i++) {
+            for (int j = 0; j < nY; j++) {
+                // construct a ray through the current pixel
+                Ray ray = this.constructRay(nX, nY, j, i);
+                // get the  color of the point from trace ray
+                Color color = rayTracerBase.traceRay(ray);
+                // write the pixel color to the image
+                imageWriter.writePixel(j, i, color);
+            }
+        }
+    }
+
+    /**
+     * function that create the grid
+     *
+     * @param interval the interval between grids
+     * @param color the color for the grid
+     */
+    public void printGrid(int interval, Color color) {
+        // if imageWriter hasn't been initialized throw an exception
+        if (imageWriter == null) {
+            throw new MissingResourceException("missing resource", ImageWriter.class.getName(), "");
+        }
+
+        imageWriter.printGrid(interval, color);
+    }
+
+    /**
+     * Function renderImage produces unoptimized png file of the image according to
+     * pixel color matrix in the directory of the project
+     */
+    public void writeToImage() {
+        // if imageWriter hasn't been initialized throw an exception
+        if (imageWriter == null) {
+            throw new MissingResourceException("missing resource", ImageWriter.class.getName(), "");
+        }
+
+        imageWriter.writeToImage();
     }
 }
 
