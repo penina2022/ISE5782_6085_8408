@@ -10,7 +10,7 @@ import java.util.Objects;
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
-public class Plane implements Geometry, Intersectable {
+public class Plane extends Geometry {
     final private Point _q0;
     final private Vector _normal;
 
@@ -70,26 +70,38 @@ public class Plane implements Geometry, Intersectable {
 
 
     @Override
-    public List<Point> findIntersectionpoints(Ray ray) {
-        Point P0=ray.getP0();
-        Vector v=ray.getDir();
-        Vector n=_normal;
-        //denominator
-        double nv = n.dotProduct(v);
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        Point P0 = ray.getP0();
+        Vector v = ray.getDir();
+        Vector n = _normal;
+        double nv = n.dotProduct((v)); //nv=n*v
 
+        // ray parallel to plane
         if (isZero(nv)) {
             return null;
         }
-        Vector P0_Q=_q0.subtract(P0);
-        double t=alignZero(n.dotProduct(P0_Q)/nv);
-        //if t < 0 the array point to the opposite direction
-        // if t==0 the ray origin lay with ×”×§×¨×Ÿ ×œ× ×‘×›×™×•×•×Ÿ ×©×× ×—× ×• ×¨×•×¦×™×
-        if(t > 0)
-        {
-            Point P=P0.add(v.scale(t));
-            return List.of(P);
+
+        //  ray cannot start from the plane
+        if (_q0.equals(P0)) {
+            return null;
         }
 
+        Vector Q0_P0 = _q0.subtract(P0);
+
+        double numerator = n.dotProduct(Q0_P0); //numerator=n*Q0_P0
+
+        //in this case P0 is on the plane, so return null
+        if (isZero(numerator)) {
+            return null;
+        }
+        double t = alignZero(numerator / nv); //t=numerator/nv
+
+        //if t>0 the ray does point toward the plane
+        if (t > 0) {
+            GeoPoint P = new GeoPoint(this, P0.add(v.scale(t))); //new GeoPoint{geometry=this, point=p0+tv}
+            return List.of(P);
+        }
+        //otherwise it doesn't point toward the plane, so return null
         return null;
     }
 }

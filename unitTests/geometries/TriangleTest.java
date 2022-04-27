@@ -38,20 +38,20 @@ class TriangleTest {
         // ============ Equivalence Partitions Tests ==============
         // TC01: Inside triangle
         ray = new Ray(new Point(1, 1, 1), new Vector(-1, -1, -1));
-        assertEquals(List.of(new Point(1d / 3, 1d / 3, 1d / 3)), tr.findIntersectionpoints(ray),
+        assertEquals(List.of(new Point(1d / 3, 1d / 3, 1d / 3)), tr.findIntersections(ray),
                 "Bad intersection");
 
         // TC02: Against edge
         ray = new Ray(new Point(0, 0, -1), new Vector(1, 1, 0));
-        assertEquals(List.of(new Point(1, 1, -1)), pl.findIntersectionpoints(ray),
+        assertEquals(List.of(new Point(1, 1, -1)), pl.findIntersections(ray),
                 "Wrong intersection with plane");
-        assertNull(tr.findIntersectionpoints(ray), "Bad intersection");
+        assertNull(tr.findIntersections(ray), "Bad intersection");
 
         // TC03: Against vertex
         ray = new Ray(new Point(0, 0, 2), new Vector(-1, -1, 0));
-        assertEquals(List.of(new Point(-0.5, -0.5, 2)), pl.findIntersectionpoints(ray),
+        assertEquals(List.of(new Point(-0.5, -0.5, 2)), pl.findIntersections(ray),
                 "Wrong intersection with plane");
-        assertNull(tr.findIntersectionpoints(ray), "Bad intersection");
+        assertNull(tr.findIntersections(ray), "Bad intersection");
 
     }
 }

@@ -3,6 +3,7 @@ package primitives;
 import java.util.List;
 
 import static primitives.Util.isZero;
+import geometries.Intersectable.GeoPoint;
 
 public class Ray {
 
@@ -103,5 +104,28 @@ public class Ray {
             }
         }
         return closePoint;
+    }
+
+    /**
+     * Finds the closet GeoPoint that is intersected
+     *
+     * @param geoPointList the list of geoPoints in which to find the closest one
+     * @return the closest geoPoint
+     */
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> geoPointList) {
+        if (geoPointList == null)
+            return null;
+
+        GeoPoint result = null;
+        double distance = Double.MAX_VALUE;
+        double d;
+        for (var pt : geoPointList) {
+            d = pt.point.distance(p0);
+            if (d < distance) {
+                distance = d;
+                result = pt;
+            }
+        }
+        return result;
     }
 }

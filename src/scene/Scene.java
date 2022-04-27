@@ -2,6 +2,7 @@ package scene;
 
 import lighting.AmbientLight;
 import geometries.Geometries;
+import lighting.LightSource;
 import primitives.Color;
 
 import java.util.LinkedList;
@@ -20,7 +21,7 @@ public class Scene {
     /**
      * Color of the background. The default is black
      */
-    public Color background=Color.BLACK;
+    public Color background= Color.BLACK;
     /**
      * The default of ambient light is black
      */
@@ -29,6 +30,10 @@ public class Scene {
      * The geometry object in context of the scene
      */
     public Geometries geometries=null;
+    /**
+    * Field represents the lights sources in the scene
+    */
+    public List<LightSource> lights = new LinkedList<>();
 
 
 
@@ -65,6 +70,15 @@ public class Scene {
      */
     public Scene setGeometries(Geometries geometries) {
         this.geometries = geometries;
+        return this;
+    }
+    /**
+     * @param lights, set the lights of the scene
+     * @return the scene
+     */
+
+    public Scene setLights(List<LightSource> lights) {
+        this.lights = lights;
         return this;
     }
 

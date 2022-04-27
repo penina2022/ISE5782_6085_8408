@@ -39,13 +39,13 @@ public class Point {
      */
     public double distanceSquared(Point other)
     {
-        double x1 = _xyz._d1;
-        double y1 = _xyz._d2;
-        double z1 = _xyz._d3;
+        double x1 = _xyz.d1;
+        double y1 = _xyz.d2;
+        double z1 = _xyz.d3;
 
-        double x2 = other._xyz._d1;
-        double y2 = other._xyz._d2;
-        double z2 = other._xyz._d3;
+        double x2 = other._xyz.d1;
+        double y2 = other._xyz.d2;
+        double z2 = other._xyz.d3;
 
         return ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)  + (z2 - z1 ) * (z2 - z1 ));
     }
@@ -84,9 +84,9 @@ public class Point {
             throw new IllegalArgumentException("cannot create Vector to Point(0,0,0)");
         }
         return  new Vector(
-                _xyz._d1 - p1.get_x(),
-                _xyz._d2 - p1.get_y(),
-                _xyz._d3 - p1.get_z()
+                _xyz.d1 - p1.get_x(),
+                _xyz.d2 - p1.get_y(),
+                _xyz.d3 - p1.get_z()
         );
         //return new Vector(p1._xyz.subtract(_xyz));
     }
@@ -98,7 +98,7 @@ public class Point {
      */
     public double get_x()
     {
-        return _xyz._d1;
+        return _xyz.d1;
     }
     /**
      * Point y value getter
@@ -107,7 +107,7 @@ public class Point {
      */
     public double get_y()
     {
-        return _xyz._d2;
+        return _xyz.d2;
     }
     /**
      * Point z value getter
@@ -116,7 +116,7 @@ public class Point {
      */
     public double get_z()
     {
-        return _xyz._d3;
+        return _xyz.d3;
     }
 }
 

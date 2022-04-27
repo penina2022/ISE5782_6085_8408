@@ -28,9 +28,9 @@ public class Vector extends Point {
      */
     public  double lengthSquared()
     {
-        return _xyz._d1 * _xyz._d1 +
-                _xyz._d2 * _xyz._d2 +
-                _xyz._d3 * _xyz._d3;
+        return _xyz.d1 * _xyz.d1 +
+                _xyz.d2 * _xyz.d2 +
+                _xyz.d3 * _xyz.d3;
     }
 
     public double length()
@@ -46,9 +46,9 @@ public class Vector extends Point {
      */
     public double dotProduct(Vector v3)
     {
-        return v3._xyz._d1 * _xyz._d1 +
-                v3._xyz._d2 * _xyz._d2 +
-                v3._xyz._d3 * _xyz._d3;
+        return v3._xyz.d1 * _xyz.d1 +
+                v3._xyz.d2 * _xyz.d2 +
+                v3._xyz.d3 * _xyz.d3;
     }
 
     /**
@@ -59,12 +59,12 @@ public class Vector extends Point {
      */
     public  Vector crossProduct(Vector v3)
     {
-        double ax = _xyz._d1;
-        double ay = _xyz._d2;
-        double az = _xyz._d3;
-        double bx = v3._xyz._d1;
-        double by = v3._xyz._d2;
-        double bz = v3._xyz._d3;
+        double ax = _xyz.d1;
+        double ay = _xyz.d2;
+        double az = _xyz.d3;
+        double bx = v3._xyz.d1;
+        double by = v3._xyz.d2;
+        double bz = v3._xyz.d3;
 
         double cx = ay * bz - az * by;
         double  cy = az * bx - ax * bz;
