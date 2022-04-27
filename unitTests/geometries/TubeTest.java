@@ -33,13 +33,4 @@ class TubeTest {
 
         assertEquals(new Vector(0, 0, 1), normal, "Bad normal to tube");
     }
-
-    @Test
-    void testGetNormal2() {
-        // ============ Boundary Value Test ==============
-        Tube tu = new Tube(
-                new Ray(new Point(0, 0, 1), new Vector(0, 0, 1)),
-                2);
-        assertEquals(new Vector(1,1, 0).normalize(), tu.getNormal(new Point(0, 2, 1)));
-    }
 }
