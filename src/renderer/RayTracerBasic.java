@@ -58,7 +58,7 @@ public class RayTracerBasic extends  RayTracerBase{
 
         return scene.ambientLight.getIntensity() //ka*Ia
                 .add(intersection.geometry.getEmission(), //+Ie
-                        calcLocalEffect(intersection, ray)); //+calculated light contribution from all light sources
+                        calcLocalEffects(intersection, ray)); //+calculated light contribution from all light sources
     }
 
     /**
@@ -68,7 +68,7 @@ public class RayTracerBasic extends  RayTracerBase{
      * @param ray          the ray from the viewer
      * @return the color
      */
-    private Color calcLocalEffect(GeoPoint intersection, Ray ray) {
+    private Color calcLocalEffects(GeoPoint intersection, Ray ray) {
         Vector v = ray.getDir();
         Vector n = intersection.geometry.getNormal(intersection.point);
 
