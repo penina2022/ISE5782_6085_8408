@@ -11,7 +11,8 @@ import java.awt.color.*;
 import static java.awt.Color.cyan;
 import static java.awt.Color.pink;
 
-public class PictureTest {
+public class PictureTest
+{
     private Scene scene = new Scene("Test scene")
             .setAmbientLight(new AmbientLight((new Color(pink)), new Double3(0.15)))
             .setBackground(new Color(cyan).reduce(1.1));
