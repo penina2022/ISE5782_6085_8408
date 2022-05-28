@@ -1,5 +1,9 @@
 package geometries;
 
+import geometries.Geometries;
+import geometries.Plane;
+import geometries.Sphere;
+import geometries.Triangle;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Ray;
@@ -33,11 +37,11 @@ class GeometriesTest {
         // TC02: Empty list of geometries (0 points)
         Geometries geometries2 = new Geometries();
         List<Point> result2 = geometries2.findIntersections(new Ray(new Point(-1, 0, 0), new Vector(3, 1, 2)));
-        assertEquals(null, result2,"Empty list of geometries");
+        assertNull(result2, "Empty list of geometries");
 
         // TC03: No geometry is cut (0 points)
         List<Point> result3 = geometries1.findIntersections(new Ray(new Point(-4, 6, 2), new Vector(1, 0, 0)));
-        assertEquals( null, result3,"No geometry is cut");
+        assertNull(result3, "No geometry is cut");
 
         // TC04: Only one geometry is cut (2 points)
         List<Point> result4 = geometries1.findIntersections(new Ray(new Point(-4, 0, 2), new Vector(1, 0, 0)));

@@ -3,6 +3,8 @@ package renderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Test;
 import primitives.Color;
+import renderer.ImageWriter;
+
 import java.awt.*;
 
 public class ImageWriterTest {

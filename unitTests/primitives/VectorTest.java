@@ -13,6 +13,7 @@ class VectorTest {
     Vector v2 = new Vector(-2, -4, -6);
     Vector v3 = new Vector(0, 3, -2);
 
+    @Test
     void testConstructorNotZero()
     {
         assertThrows(

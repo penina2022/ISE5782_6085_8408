@@ -1,6 +1,7 @@
 package geometries;
 
 
+import geometries.*;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Ray;

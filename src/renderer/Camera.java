@@ -42,7 +42,7 @@ public class Camera {
     // Field for image writer
     private ImageWriter imageWriter;
     // Field for ray tracer
-    private RayTracerBase rayTracerBase;
+    private RayTracerBase rayTracer;
 
     /**
      * Returns the camera location.
@@ -112,7 +112,7 @@ public class Camera {
      * @return Camera object
      */
     public Camera setRayTracer(RayTracerBasic rayTracerBasic) {
-        this.rayTracerBase = rayTracerBasic;
+        this.rayTracer = rayTracerBasic;
         return this;
     }
 
@@ -227,7 +227,7 @@ public class Camera {
         if (imageWriter == null) {
             throw new MissingResourceException("missing resource", ImageWriter.class.getName(), "");
         }
-        if (rayTracerBase == null) {
+        if (rayTracer == null) {
             throw new MissingResourceException("missing resource", RayTracerBase.class.getName(), "");
         }
 
@@ -240,7 +240,7 @@ public class Camera {
                 // construct a ray through the current pixel
                 Ray ray = this.constructRay(nX, nY, j, i);
                 // get the  color of the point from trace ray
-                Color color = rayTracerBase.traceRay(ray);
+                Color color = rayTracer.traceRay(ray);
                 // write the pixel color to the image
                 imageWriter.writePixel(j, i, color);
             }

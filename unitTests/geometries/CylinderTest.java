@@ -1,5 +1,6 @@
 package geometries;
 
+import geometries.*;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import primitives.Point;

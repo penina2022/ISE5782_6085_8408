@@ -6,6 +6,7 @@ import lighting.AmbientLight;
 import geometries.*;
 import primitives.*;
 import primitives.Double3;
+import renderer.*;
 import scene.Scene;
 import static java.awt.Color.*;
 

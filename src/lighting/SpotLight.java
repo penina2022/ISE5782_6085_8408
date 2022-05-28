@@ -46,4 +46,15 @@ public class SpotLight extends PointLight {
         }
         return p.subtract(position).normalize();
     }
+
+    /**
+     *
+     * @param pnt, the point were finding the distance between it and the light source
+     * @return the distance
+     */
+    @Override
+    public double getDistance(Point pnt)
+    {
+        return pnt.distance(position);
+    }
 }
